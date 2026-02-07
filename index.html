@@ -1,43 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Will You Be My Valentine?</title>
+  <title>Question</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       background-color: #0b0b0b;
-      color: #f2f2f2;
+      color: #ffffff;
       font-family: Georgia, serif;
       text-align: center;
-      padding: 50px;
+      padding-top: 100px;
+      overflow: hidden;
     }
+
+    h1 {
+      font-weight: normal;
+    }
+
+    .buttons {
+      margin-top: 40px;
+    }
+
     button {
-      margin-top: 30px;
-      padding: 12px 24px;
+      padding: 12px 28px;
       font-size: 16px;
-      background-color: #7a0019;
-      color: white;
       border: none;
       border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    #yes {
+      background-color: #7a0019;
+      color: white;
+      margin-right: 20px;
+    }
+
+    #no {
+      background-color: #444;
+      color: white;
+      position: absolute;
+    }
+
+    img {
+      width: 200px;
+      margin-top: 30px;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Hey you.</h1>
-  <p>
-    This is me asking<br>
-    in the softest way I know how.
-  </p>
+  <h1>Will you be my Valentine?</h1>
 
-  <button onclick="reveal()">Tap here</button>
+  <div class="buttons">
+    <button id="yes" onclick="yesClicked()">Yes</button>
+    <button id="no" onmouseover="moveNo()">No</button>
+  </div>
 
   <script>
-    function reveal() {
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function yesClicked() {
       document.body.innerHTML = `
-        <h1>🌹</h1>
+        <h1>YAYYYYY!!!</h1>
+        <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif">
         <p>
-          Will you be my Valentine?
+          I knew you’d say yes.<br>
+          You always do.
         </p>
       `;
     }
@@ -45,3 +82,4 @@
 
 </body>
 </html>
+
